@@ -7,7 +7,17 @@ namespace Lab11
     [Activity(Label = "Lab11", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
+        Complex Data;
         private int Counter = 0;
+
+        protected override void OnSaveInstanceState(Bundle outState)
+        {
+            outState.PutInt("CounterValue", Counter);
+            Android.Util.Log.Debug("Lab11Log", "Activity A - OnStateSaveInstance");
+
+            base.OnSaveInstanceState(outState);
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -22,6 +32,12 @@ namespace Lab11
                 var ActivityIntent = new Android.Content.Intent(this, typeof(SecondActivity));
                 StartActivity(ActivityIntent);
             };
+
+            if(bundle != null)
+            {
+                Counter = bundle.GetInt("CounterValue", 0);
+                Android.Util.Log.Debug("Lab11Log", "Activity A - Recovered Instance Save");
+            }
 
             var ClickCounter = FindViewById<Button>(Resource.Id.ClicksCounter);
             ClickCounter.Text = Resources.GetString(Resource.String.ClicksCounter_Text, Counter);
