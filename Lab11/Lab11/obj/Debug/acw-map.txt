@@ -1,3 +1,7 @@
+Lab11.Complex, Lab11;md5cb751fe4d4017fddc0a7955c8bdc0820.Complex
+Lab11.Complex, Lab11, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5cb751fe4d4017fddc0a7955c8bdc0820.Complex
+Lab11.Complex;md5cb751fe4d4017fddc0a7955c8bdc0820.Complex
+lab11.Complex;md5cb751fe4d4017fddc0a7955c8bdc0820.Complex
 Lab11.MainActivity, Lab11;md5cb751fe4d4017fddc0a7955c8bdc0820.MainActivity
 Lab11.MainActivity, Lab11, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5cb751fe4d4017fddc0a7955c8bdc0820.MainActivity
 Lab11.MainActivity;md5cb751fe4d4017fddc0a7955c8bdc0820.MainActivity

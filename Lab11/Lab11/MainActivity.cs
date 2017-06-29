@@ -33,6 +33,15 @@ namespace Lab11
                 StartActivity(ActivityIntent);
             };
 
+            Data = (Complex)this.FragmentManager.FindFragmentByTag("Data");
+            if(Data == null)
+            {
+                Data = new Complex();
+                var FragmentTransaction = this.FragmentManager.BeginTransaction();
+                FragmentTransaction.Add(Data, "Data");
+                FragmentTransaction.Commit();
+            }
+
             if(bundle != null)
             {
                 Counter = bundle.GetInt("CounterValue", 0);
@@ -41,11 +50,16 @@ namespace Lab11
 
             var ClickCounter = FindViewById<Button>(Resource.Id.ClicksCounter);
             ClickCounter.Text = Resources.GetString(Resource.String.ClicksCounter_Text, Counter);
+            ClickCounter.Text += $"\n{Data.ToString()}";
 
             ClickCounter.Click += (sender, e) =>
             {
                 Counter++;
                 ClickCounter.Text = Resources.GetString(Resource.String.ClicksCounter_Text, Counter);
+
+                Data.Real++;
+                Data.Imaginary++;
+                ClickCounter.Text += $"\n{Data.ToString()}";
             };
 
         }
